@@ -20,4 +20,4 @@ function log_discount($order_id){
     }
 }
 
-add_action('woocommerce_order_status_completed', 'log_discount');
+add_action('woocommerce_thankyou', 'log_discount');
