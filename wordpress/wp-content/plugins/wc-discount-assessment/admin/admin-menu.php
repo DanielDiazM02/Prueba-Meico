@@ -9,6 +9,7 @@ class Admin_Menu{
     }
 
     public static function register_menu_discount(){
+        // Plugin Main menu
         add_menu_page(
             'WC-discount-assessment',
             'WC-Discount-Assessment',
@@ -19,6 +20,7 @@ class Admin_Menu{
             56
         );
 
+        // Plugin Submenu for log list
         add_submenu_page(
             'discount-assessment',
             'Discount Logs',

@@ -4,8 +4,9 @@ if (!defined('ABSPATH')) exit;
 
 function register_discount($cart){
 
+    // Considerations before aplying discount
     $user = wp_get_current_user();
-    // if (!in_array('cliente_vip', Array($user->roles))) return;
+    if (!in_array('cliente_vip', Array($user->roles))) return;
 
     $discount = floatval(get_option('discount_percentage', 0));
     $min_total = floatval(get_option('min_total', 0));
@@ -16,6 +17,7 @@ function register_discount($cart){
     $cart_total = floatval($cart->get_subtotal());
     if ($min_total > $cart_total) return;
 
+    // Discount applied
     $total_discount = $cart_total * $discount / 100;
     $cart->add_fee('Descuento Especial', -$total_discount, false);
 }

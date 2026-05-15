@@ -2,7 +2,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-
+// Logic to save discount values
 if(isset($_POST['custom_discount_nonce']) && wp_verify_nonce($_POST['custom_discount_nonce'], 'save_discount')){
     update_option('discount_percentage', $_POST['new_discount']);
     update_option('min_total', $_POST['new_min']);
@@ -15,6 +15,7 @@ $min_value = floatval(get_option('min_total', 0));
 $is_active = get_option('is_active_discount', '0') === '1';
 ?>
 
+<!-- HTML form -->
 <div class="wrap">
     <h1>Descuentos Personalizables</h1>
     <form method="post">

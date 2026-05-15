@@ -4,10 +4,12 @@ if (!defined('ABSPATH')) exit;
 
 global $wpdb;
 
+// Pagination
 $per_page = 10;
 $current_page = isset($_GET['paged']) ? max(1, intval($_GET['paged'])) : 1;
 $offset = ($current_page - 1) * $per_page;
 
+// Query with pagination
 $total = (int) $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}discount_log");
 $total_pages = ceil($total / $per_page);
 
@@ -48,7 +50,8 @@ $base_url = admin_url('admin.php?page=discount-assessment-logs');
             <?php endif; ?>
         </tbody>
     </table>
-
+    
+    <!-- Table Pagination buttons-->
     <?php if ($total_pages > 1): ?>
     <div class="tablenav bottom">
         <div class="tablenav-pages">

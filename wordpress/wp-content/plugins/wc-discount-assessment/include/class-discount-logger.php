@@ -20,4 +20,5 @@ function log_discount($order_id){
     }
 }
 
+// This hook is chosen to include cash on delivery orders
 add_action('woocommerce_thankyou', 'log_discount');
